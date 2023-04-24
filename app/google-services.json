@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "131479805734",
+    "firebase_url": "https://smartpotreadings-default-rtdb.firebaseio.com",
+    "project_id": "smartpotreadings",
+    "storage_bucket": "smartpotreadings.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131479805734:android:bfffb275aec9dc2667ebe7",
+        "android_client_info": {
+          "package_name": "com.example.mctr421progressbar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131479805734-q074tm1dm78om44l0c28h0his2sbenug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABd6eyuDjSCrrhEtvluY_kizRcCqGHUrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "131479805734-q074tm1dm78om44l0c28h0his2sbenug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
