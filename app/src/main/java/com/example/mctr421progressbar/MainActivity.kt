@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 
 class MainActivity : AppCompatActivity() {
+    //creation of variables that would be used
     private lateinit var binding: ActivityMainBinding
     private lateinit var database: DatabaseReference
     private var light:Int = 100
@@ -30,15 +31,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
 
-        binding.toggleButton2.setOnClickListener{ setDataON() }
+        binding.toggleButton2.setOnClickListener{ setDataON() } //code to make toggle button turn on spotlight
+        //it uses that setDataON function to update value on the database
 
+
+        //decision statement to determin if the updated value should be 255 or 0. 255 means on and 0 means off
         val toggleButton2 = findViewById<ToggleButton>(R.id.toggleButton2)
         toggleButton2.setOnClickListener{
             if(toggleButton2.text.toString() == "ON"){
                 setDataON()
             }
             else{
-                setDataOFF()
+                setDataOFF() //set dataOff function updates value on database to 0
             }
         }
 
@@ -46,12 +50,13 @@ class MainActivity : AppCompatActivity() {
         val updateButton = findViewById<Button>(R.id.button)
         updateButton.setOnClickListener {
 
-
+//initializing the textviews to show values
             val txtWater = findViewById<TextView>(R.id.textView5)
             val txtMoisture = findViewById<TextView>(R.id.textView6)
             val txtlight = findViewById<TextView>(R.id.textView7)
             val txtBattery = findViewById<TextView>(R.id.textView8)
 
+            //the textvews will be updated with the percentage values from the database
             txtWater.text = "$water%"
             txtMoisture.text = "$moisture%"
             txtlight.text = "$light%"
@@ -90,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                 .setDuration(1000)
                 .start()
 
-            readData()
+            readData() //function made to read the values of the database
 
 
         }
