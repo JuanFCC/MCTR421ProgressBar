@@ -29,13 +29,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
         binding.toggleButton2.setOnClickListener{ setDataON() } //code to make toggle button turn on spotlight
         //it uses that setDataON function to update value on the database
 
+        binding.toggleButton.setOnClickListener{ setPumpON() }
 
-        //decision statement to determin if the updated value should be 255 or 0. 255 means on and 0 means off
+        //decision statement to determine if the updated value should be 255 or 0. 255 means on and 0 means off
         val toggleButton2 = findViewById<ToggleButton>(R.id.toggleButton2)
         toggleButton2.setOnClickListener{
             if(toggleButton2.text.toString() == "ON"){
@@ -46,9 +47,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        val toggleButton = findViewById<ToggleButton>(R.id.toggleButton)
+        toggleButton.setOnClickListener{
+            if(toggleButton.text.toString() == "ON"){
+                setPumpON()
+            }
+            else{
+                setPumpOFF() //set dataOff function updates value on database to 0
+            }
+        }
+
         //button will be used to update the values of the progress bars
         val updateButton = findViewById<Button>(R.id.button)
         updateButton.setOnClickListener {
+            readData() //function made to read the values of the database
 
 //initializing the textviews to show values
             val txtWater = findViewById<TextView>(R.id.textView5)
@@ -95,7 +107,10 @@ class MainActivity : AppCompatActivity() {
                 .setDuration(1000)
                 .start()
 
-            readData() //function made to read the values of the database
+
+            if(light>50){
+                binding.plantFall.playAnimation()
+            }
 
 
         }
@@ -109,6 +124,16 @@ class MainActivity : AppCompatActivity() {
     private fun setDataON() {
         database = FirebaseDatabase.getInstance().getReference("LED")
         database.child("spotlight").setValue(255)
+    }
+
+    private fun setPumpON(){
+        database = FirebaseDatabase.getInstance().getReference("LED")
+        database.child("pumpState").setValue(255)
+    }
+
+    private fun setPumpOFF(){
+        database = FirebaseDatabase.getInstance().getReference("LED")
+        database.child("pumpState").setValue(0)
     }
 
     @SuppressLint("SetTextI18n")
@@ -149,3 +174,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+

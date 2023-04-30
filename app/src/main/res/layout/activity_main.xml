@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pastelgreen"
     tools:context=".MainActivity">
 
     <ProgressBar
@@ -27,6 +28,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:text="Amount of Water Left in reservoir"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,6 +54,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:text="Amount of Moisture in Soil"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/progressBar2"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -75,6 +78,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:text="Amount of Light"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/progressBar3"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -98,6 +102,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:text="Battery Left"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/progressBar4"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -160,6 +165,21 @@
         app:layout_constraintBottom_toBottomOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!--
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/plantGrow"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/plant0grow"
+        app:lottie_speed="1" />
+-->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/plantFall"
         android:layout_width="250dp"
@@ -169,10 +189,37 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
         app:lottie_rawRes="@raw/plant0fall"
         app:lottie_speed="1" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Spotlight"
+        app:layout_constraintBottom_toTopOf="@+id/toggleButton2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        app:layout_constraintBottom_toBottomOf="@+id/toggleButton2"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton2" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pump"
+        app:layout_constraintBottom_toTopOf="@+id/toggleButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
